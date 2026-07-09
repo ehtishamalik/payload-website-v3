@@ -3,17 +3,15 @@ import type {
 	FormFieldBlock,
 	Form as FormType,
 } from "@payloadcms/plugin-form-builder/types";
-
+import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 import { useRouter } from "next/navigation";
 import type React from "react";
 import { useCallback, useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import RichText from "@/components/RichText";
 import { Button } from "@/components/ui/button";
-import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
-
-import { fields } from "./fields";
 import { getClientSideURL } from "@/utilities/getURL";
+import { fields } from "./fields";
 
 export type FormBlockType = {
 	blockName?: string;
@@ -129,7 +127,7 @@ export const FormBlock: React.FC<
 	);
 
 	return (
-		<div className="container lg:max-w-[48rem]">
+		<div className="container lg:max-w-3xl">
 			{enableIntro && introContent && !hasSubmitted && (
 				<RichText
 					className="mb-8 lg:mb-12"
@@ -149,28 +147,29 @@ export const FormBlock: React.FC<
 					{!hasSubmitted && (
 						<form id={formID} onSubmit={handleSubmit(onSubmit)}>
 							<div className="mb-4 last:mb-0">
-								{formFromProps &&
-									formFromProps.fields &&
-									formFromProps.fields?.map((field, index) => {
-										// eslint-disable-next-line @typescript-eslint/no-explicit-any
-										const Field: React.FC<any> =
-											fields?.[field.blockType as keyof typeof fields];
-										if (Field) {
-											return (
-												<div className="mb-6 last:mb-0" key={index}>
-													<Field
-														form={formFromProps}
-														{...field}
-														{...formMethods}
-														control={control}
-														errors={errors}
-														register={register}
-													/>
-												</div>
-											);
-										}
-										return null;
-									})}
+								{formFromProps?.fields?.map((field, index) => {
+									// biome-ignore lint/suspicious/noExplicitAny : Cannot change
+									const Field: React.FC<any> =
+										fields?.[field.blockType as keyof typeof fields];
+
+									if (Field) {
+										return (
+											// biome-ignore lint/suspicious/noArrayIndexKey : Cannot change
+											<div className="mb-6 last:mb-0" key={index}>
+												<Field
+													form={formFromProps}
+													{...field}
+													{...formMethods}
+													control={control}
+													errors={errors}
+													register={register}
+												/>
+											</div>
+										);
+									}
+
+									return null;
+								})}
 							</div>
 
 							<Button form={formID} type="submit" variant="default">

@@ -1,25 +1,23 @@
-import { MediaBlock } from "@/blocks/MediaBlock/Component";
 import type {
 	DefaultNodeTypes,
+	DefaultTypedEditorState,
 	SerializedBlockNode,
 	SerializedLinkNode,
-	DefaultTypedEditorState,
 } from "@payloadcms/richtext-lexical";
 import {
+	RichText as ConvertRichText,
 	type JSXConvertersFunction,
 	LinkJSXConverter,
-	RichText as ConvertRichText,
 } from "@payloadcms/richtext-lexical/react";
-
+import { BannerBlock } from "@/blocks/Banner/Component";
+import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { CodeBlock, type CodeBlockProps } from "@/blocks/Code/Component";
-
+import { MediaBlock } from "@/blocks/MediaBlock/Component";
 import type {
 	BannerBlock as BannerBlockProps,
 	CallToActionBlock as CTABlockProps,
 	MediaBlock as MediaBlockProps,
 } from "@/payload-types";
-import { BannerBlock } from "@/blocks/Banner/Component";
-import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { cn } from "@/utilities/ui";
 
 type NodeTypes =
@@ -29,6 +27,7 @@ type NodeTypes =
 	  >;
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
+	// biome-ignore lint/style/noNonNullAssertion : Cannot change
 	const { value, relationTo } = linkNode.fields.doc!;
 	if (typeof value !== "object") {
 		throw new Error("Expected value to be an object");
@@ -51,7 +50,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({
 				className="col-start-1 col-span-3"
 				imgClassName="m-0"
 				{...node.fields}
-				captionClassName="mx-auto max-w-[48rem]"
+				captionClassName="mx-auto max-w-3xl"
 				enableGutter={false}
 				disableInnerContainer={true}
 			/>

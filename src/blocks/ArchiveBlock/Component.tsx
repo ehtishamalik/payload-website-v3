@@ -1,11 +1,9 @@
-import type { Post, ArchiveBlock as ArchiveBlockProps } from "@/payload-types";
-
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import type React from "react";
-import RichText from "@/components/RichText";
-
 import { CollectionArchive } from "@/components/CollectionArchive";
+import RichText from "@/components/RichText";
+import type { ArchiveBlock as ArchiveBlockProps, Post } from "@/payload-types";
 
 export const ArchiveBlock: React.FC<
 	ArchiveBlockProps & {
@@ -51,6 +49,7 @@ export const ArchiveBlock: React.FC<
 		posts = fetchedPosts.docs;
 	} else {
 		if (selectedDocs?.length) {
+			// biome-ignore lint/suspicious/useIterableCallbackReturn : Cannot change
 			const filteredSelectedPosts = selectedDocs.map((post) => {
 				if (typeof post.value === "object") return post.value;
 			}) as Post[];
@@ -64,7 +63,7 @@ export const ArchiveBlock: React.FC<
 			{introContent && (
 				<div className="container mb-16">
 					<RichText
-						className="ms-0 max-w-[48rem]"
+						className="ms-0 max-w-3xl"
 						data={introContent}
 						enableGutter={false}
 					/>

@@ -1,8 +1,6 @@
 import type React from "react";
-
-import type { Page } from "@/payload-types";
-
 import RichText from "@/components/RichText";
+import type { Page } from "@/payload-types";
 
 type LowImpactHeroType =
 	| {
@@ -20,7 +18,7 @@ export const LowImpactHero: React.FC<LowImpactHeroType> = ({
 }) => {
 	return (
 		<div className="container mt-16">
-			<div className="max-w-[48rem]">
+			<div className="max-w-3xl">
 				{children ||
 					(richText && <RichText data={richText} enableGutter={false} />)}
 			</div>
