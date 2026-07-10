@@ -1,8 +1,7 @@
-import type { Config } from "@/payload-types";
-
 import configPromise from "@payload-config";
-import { type DataFromGlobalSlug, getPayload } from "payload";
 import { unstable_cache } from "next/cache";
+import { type DataFromGlobalSlug, getPayload } from "payload";
+import type { Config } from "@/payload-types";
 
 type Global = keyof Config["globals"];
 

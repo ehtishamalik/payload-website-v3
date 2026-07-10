@@ -1,13 +1,11 @@
 import type React from "react";
 import { Fragment } from "react";
-
-import type { Page } from "@/payload-types";
-
 import { ArchiveBlock } from "@/blocks/ArchiveBlock/Component";
 import { CallToActionBlock } from "@/blocks/CallToAction/Component";
 import { ContentBlock } from "@/blocks/Content/Component";
 import { FormBlock } from "@/blocks/Form/Component";
 import { MediaBlock } from "@/blocks/MediaBlock/Component";
+import type { Page } from "@/payload-types";
 
 const blockComponents = {
 	archive: ArchiveBlock,
@@ -35,6 +33,7 @@ export const RenderBlocks: React.FC<{
 
 						if (Block) {
 							return (
+								// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 								<div className="my-16" key={index}>
 									{/* @ts-expect-error there may be some mismatch between the expected types here */}
 									<Block {...block} disableInnerContainer />

@@ -1,9 +1,9 @@
 import type {
 	CollectionSlug,
+	File,
 	GlobalSlug,
 	Payload,
 	PayloadRequest,
-	File,
 } from "payload";
 
 import { contactForm as contactFormData } from "./contact-form";

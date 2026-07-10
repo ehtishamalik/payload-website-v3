@@ -1,5 +1,5 @@
-import { cn } from "@/utilities/ui";
 import type * as React from "react";
+import { cn } from "@/utilities/ui";
 
 const Card: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 	className,
@@ -87,9 +87,9 @@ const CardFooter: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 
 export {
 	Card,
-	CardHeader,
-	CardFooter,
-	CardTitle,
-	CardDescription,
 	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
 };

@@ -1,15 +1,12 @@
 "use client";
 
 import type { StaticImageData } from "next/image";
-
-import { cn } from "@/utilities/ui";
 import NextImage from "next/image";
 import type React from "react";
-
-import type { Props as MediaProps } from "../types";
-
 import { cssVariables } from "@/cssVariables";
 import { getMediaUrl } from "@/utilities/getMediaUrl";
+import { cn } from "@/utilities/ui";
+import type { Props as MediaProps } from "../types";
 
 const { breakpoints } = cssVariables;
 
@@ -71,7 +68,9 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 			width: fullWidth,
 		} = resource;
 
+		// biome-ignore lint/style/noNonNullAssertion: Cannot change
 		width = fullWidth!;
+		// biome-ignore lint/style/noNonNullAssertion: Cannot change
 		height = fullHeight!;
 		alt = altFromResource || "";
 

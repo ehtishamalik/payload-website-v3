@@ -1,8 +1,7 @@
-import RichText from "@/components/RichText";
-import type React from "react";
-
-import { Width } from "../Width";
 import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
+import type React from "react";
+import RichText from "@/components/RichText";
+import { Width } from "../Width";
 
 export const Message: React.FC<{ message: DefaultTypedEditorState }> = ({
 	message,

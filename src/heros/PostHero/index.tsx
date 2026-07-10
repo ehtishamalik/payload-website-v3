@@ -1,10 +1,8 @@
 import React from "react";
-
-import { formatDateTime } from "@/utilities/formatDateTime";
-import { formatAuthors } from "@/utilities/formatAuthors";
 import { Media } from "@/components/Media";
-
 import type { Post } from "@/payload-types";
+import { formatAuthors } from "@/utilities/formatAuthors";
+import { formatDateTime } from "@/utilities/formatDateTime";
 
 export const PostHero: React.FC<{
 	post: Post;
@@ -30,6 +28,7 @@ export const PostHero: React.FC<{
 								const isLast = index === categories.length - 1;
 
 								return (
+									// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 									<React.Fragment key={index}>
 										{titleToUse}
 										{!isLast && <React.Fragment>, &nbsp;</React.Fragment>}

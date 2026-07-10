@@ -1,10 +1,8 @@
 import type React from "react";
-
-import type { Page } from "@/payload-types";
-
 import { CMSLink } from "@/components/Link";
 import { Media } from "@/components/Media";
 import RichText from "@/components/RichText";
+import type { Page } from "@/payload-types";
 
 export const MediumImpactHero: React.FC<Page["hero"]> = ({
 	links,
@@ -22,6 +20,7 @@ export const MediumImpactHero: React.FC<Page["hero"]> = ({
 					<ul className="flex gap-4">
 						{links.map(({ link }, i) => {
 							return (
+								// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 								<li key={i}>
 									<CMSLink {...link} />
 								</li>

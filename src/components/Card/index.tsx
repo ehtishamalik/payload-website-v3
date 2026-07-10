@@ -1,13 +1,11 @@
 "use client";
-import { cn } from "@/utilities/ui";
-import useClickableCard from "@/utilities/useClickableCard";
 import Link from "next/link";
 import type React from "react";
 import { Fragment } from "react";
-
-import type { Post } from "@/payload-types";
-
 import { Media } from "@/components/Media";
+import type { Post } from "@/payload-types";
+import { cn } from "@/utilities/ui";
+import useClickableCard from "@/utilities/useClickableCard";
 
 export type CardPostData = Pick<Post, "slug" | "categories" | "meta" | "title">;
 
@@ -63,6 +61,7 @@ export const Card: React.FC<{
 								const isLast = index === categories.length - 1;
 
 								return (
+									// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 									<Fragment key={index}>
 										{categoryTitle}
 										{!isLast && <Fragment>, &nbsp;</Fragment>}

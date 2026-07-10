@@ -1,5 +1,5 @@
+import type { CollectionSlug, PayloadRequest } from "payload";
 import type { PreviewSearchParams } from "@/app/(frontend)/next/preview/route";
-import type { PayloadRequest, CollectionSlug } from "payload";
 
 const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
 	posts: "/posts",

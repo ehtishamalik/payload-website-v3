@@ -1,10 +1,8 @@
 import type { StaticImageData } from "next/image";
-
-import { cn } from "@/utilities/ui";
 import type React from "react";
 import RichText from "@/components/RichText";
-
 import type { MediaBlock as MediaBlockProps } from "@/payload-types";
+import { cn } from "@/utilities/ui";
 
 import { Media } from "../../components/Media";
 
@@ -29,6 +27,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
 		disableInnerContainer,
 	} = props;
 
+	// biome-ignore lint/suspicious/noImplicitAnyLet: Cannot change
 	let caption;
 	if (media && typeof media === "object") caption = media.caption;
 

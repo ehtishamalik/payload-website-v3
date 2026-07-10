@@ -1,8 +1,7 @@
-import { cn } from "@/utilities/ui";
 import type React from "react";
 import RichText from "@/components/RichText";
-
 import type { ContentBlock as ContentBlockProps } from "@/payload-types";
+import { cn } from "@/utilities/ui";
 
 import { CMSLink } from "../../components/Link";
 
@@ -27,11 +26,13 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 						return (
 							<div
 								className={cn(
+									// biome-ignore lint/style/noNonNullAssertion: Cannot change
 									`col-span-4 lg:col-span-${colsSpanClasses[size!]}`,
 									{
 										"md:col-span-2": size !== "full",
 									},
 								)}
+								// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 								key={index}
 							>
 								{richText && <RichText data={richText} enableGutter={false} />}

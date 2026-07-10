@@ -5,8 +5,8 @@ import { defaultTheme, themeLocalStorageKey } from "../ThemeSelector/types";
 
 export const InitTheme: React.FC = () => {
 	return (
-		// eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
 		<Script
+			// biome-ignore lint/security/noDangerouslySetInnerHtml: Cannot change
 			dangerouslySetInnerHTML={{
 				__html: `
   (function () {

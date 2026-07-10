@@ -1,11 +1,9 @@
+import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 import clsx from "clsx";
 import type React from "react";
 import RichText from "@/components/RichText";
-
 import type { Post } from "@/payload-types";
-
 import { Card } from "../../components/Card";
-import type { DefaultTypedEditorState } from "@payloadcms/richtext-lexical";
 
 export type RelatedPostsProps = {
 	className?: string;
@@ -25,6 +23,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
 					if (typeof doc === "string") return null;
 
 					return (
+						// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 						<Card key={index} doc={doc} relationTo="posts" showCategories />
 					);
 				})}

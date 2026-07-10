@@ -37,6 +37,7 @@ export const getMeUser = async (args?: {
 
 	// Token will exist here because if it doesn't the user will be redirected
 	return {
+		// biome-ignore lint/style/noNonNullAssertion: Cannot change
 		token: token!,
 		user,
 	};

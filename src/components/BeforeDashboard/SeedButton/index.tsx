@@ -1,8 +1,8 @@
 "use client";
 
+import { toast } from "@payloadcms/ui";
 import type React from "react";
 import { Fragment, useCallback, useState } from "react";
-import { toast } from "@payloadcms/ui";
 
 import "./index.scss";
 
@@ -80,7 +80,7 @@ export const SeedButton: React.FC = () => {
 
 	return (
 		<Fragment>
-			<button className="seedButton" onClick={handleClick}>
+			<button type="button" className="seedButton" onClick={handleClick}>
 				Seed your database
 			</button>
 			{message}

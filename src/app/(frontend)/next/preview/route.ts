@@ -1,11 +1,9 @@
-import type { PayloadRequest } from "payload";
-import { getPayload } from "payload";
-
+import configPromise from "@payload-config";
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 import type { NextRequest } from "next/server";
-
-import configPromise from "@payload-config";
+import type { PayloadRequest } from "payload";
+import { getPayload } from "payload";
 
 export type PreviewSearchParams = {
 	path: string;
@@ -37,6 +35,7 @@ export async function GET(req: NextRequest): Promise<Response> {
 		);
 	}
 
+	// biome-ignore lint/suspicious/noImplicitAnyLet: Cannot change
 	let user;
 
 	try {

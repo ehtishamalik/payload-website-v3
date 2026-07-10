@@ -1,7 +1,6 @@
-import { cn } from "@/utilities/ui";
 import type React from "react";
-
 import { Card, type CardPostData } from "@/components/Card";
+import { cn } from "@/utilities/ui";
 
 export type Props = {
 	posts: CardPostData[];
@@ -17,6 +16,7 @@ export const CollectionArchive: React.FC<Props> = (props) => {
 					{posts?.map((result, index) => {
 						if (typeof result === "object" && result !== null) {
 							return (
+								// biome-ignore lint/suspicious/noArrayIndexKey: Cannot change
 								<div className="col-span-4" key={index}>
 									<Card
 										className="h-full"
