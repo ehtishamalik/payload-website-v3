@@ -2,6 +2,8 @@
 
 This is the official [Payload Website Template](https://github.com/payloadcms/payload/blob/3.x/templates/website). Use it to power websites, blogs, or portfolios from small to enterprise. This repo includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website.
 
+This Payload v3 CMS template has been updated by me to remove the build and lint errors that come with the default template, and ESLint has been replaced with BiomeJS.
+
 This template is right for you if you are working on:
 
 - A personal or enterprise-grade website, blog, or portfolio
@@ -31,7 +33,7 @@ To spin up this example locally, follow these steps:
 
 If you have not done so already, you need to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
 
-Use the `create-payload-app` CLI to clone this template directly to your machine:
+Use the `create-payload-app` CLI to fork or clone this template directly to your machine and start working on Payload CMS:
 
 ```bash
 pnpx create-payload-app my-project -t website
